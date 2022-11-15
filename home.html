@@ -8,14 +8,17 @@
     <title>RPS - Home</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="images/favicon.png">
+    <script src="main.js"></script>
 </head>
 
 <body>
     <header>
         <nav class="nav">
+            <a href="home.html">
             <img height="100px" width="100px" src="images/logo.png" alt="logo">
+            </a>
             <ul>
-                <li><a href="home.html">HOME</a></li>
+                <li><a class="active" href="home.html">HOME</a></li>
                 <li><a href="rules.html">RULES</a></li>
             </ul>
            
@@ -23,14 +26,18 @@
 
     </header>
     
-    <section>
-        <label for="name">Name <input type="text" name="name" id="name"></label>
+    <section id="home">
+        
+        <label for="name"><input type="text" placeholder="Insert name..." name="name" id="name"></label>
         <br>
-        <button>PLAY</button>
+        <br>
+        <button onclick="chooseMe()"> PLAY</button>
+       
     </section>
     <footer>
-        <h2>© 2022-2022 Team 8 AB</h2>
+        <h5>© 2022-2022 Team 8 AB</h5>
     </footer>
+    
 </body>
 
 </html>
