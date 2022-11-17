@@ -9,8 +9,8 @@ let bestOf5 = document.getElementById("bestof5");
 let nonStop = document.getElementById("nonstop");
 let buttons = document.getElementsByClassName("buttons").innerHTML;
 
-function endOf3() {
-    buttons.remove();
+function endof3() {
+    buttons.classlist.remove();
     bestOf3.remove();
 }
 
