@@ -2,13 +2,30 @@
 function chooseMe() {
     
     location.href="choose-game.html";
-    // let playerName = document.getElementById("name").value;
 
-    // if (playerName == "") {
-    //     playerName = "Player";
-    // }
- 
-    // console.log(playerName);
+    if (document.getElementById("name") !== null) {
+        localStorage.setItem("playerNameItem", document.getElementById("name").value);
+        if (localStorage.getItem("playerNameItem") == "") {
+            localStorage.setItem("playerNameItem", "Player");
+        }
+
+    }
+
+}
+
+function timer(color) {
+    let startTime = new Date().getTime();
+    let section = document.getElementById("choosegame");
+    section.setAttribute("style", color)
+    let interval = setInterval(function(){
+    
+    if(new Date().getTime() - startTime >= 800){
+        clearInterval(interval);
+        section.removeAttribute("style", color);
+        return;
+    }
+    //do whatever here..
+}, 500);
 }
 
 function rockX() {
@@ -106,16 +123,19 @@ function Computer(playerChoice, gameType) {
     console.log(random);
     let playerScore = document.getElementById("playerScore");
     let computerScore = document.getElementById("computerScore");
-    
+   
     if (random == 1){
         console.log('computer: rock')
         if(playerChoice == 1) {
-            console.log('draw')
+            timer("background-color: #FBB117")
+            console.log('drawn')
         } else if(playerChoice == 2) {
             console.log('player wins')
+            timer("background-color: #85BB65;")
             playerPoints++;
         } else if (playerChoice == 3) {
             console.log('Computer wins')
+            timer("background-color: darkred");
             computerPoints++;
         }
     }
@@ -124,11 +144,14 @@ function Computer(playerChoice, gameType) {
         console.log('computer: paper');
         if(playerChoice == 1){
             console.log('computer wins')
+            timer("background-color: darkred");
             computerPoints++;
         } else if (playerChoice == 2) {
-            console.log('draw')
+            timer("background-color: #FBB117")
+            console.log('drawn')
         } else if(playerChoice == 3) {
             console.log('player wins')
+            timer("background-color: #85BB65;")
             playerPoints++;
         }
     }
@@ -137,16 +160,21 @@ function Computer(playerChoice, gameType) {
         console.log("computer: scissors");
         if (playerChoice == 1){
             console.log('Player wins')
+            timer("background-color: #85BB65;")
             playerPoints++;
+
         } else if (playerChoice == 2){
+            timer("background-color: darkred");
             console.log('Computer wins')
             computerPoints++;
+
         } else if (playerChoice == 3){
-            console.log('draw');
+            timer("background-color: #FBB117")
+            console.log('drawn');
         }
     }
    // chooseMe(playerName)
-    playerScore.innerHTML = 'Player: '+ parseInt(playerPoints);
+    playerScore.innerHTML = localStorage.getItem("playerNameItem")+': '+ parseInt(playerPoints);
     computerScore.innerHTML ='Computer: '+ parseInt(computerPoints);
     if(playerPoints >= gameType){
         let button = document.createElement("button");
@@ -154,7 +182,7 @@ function Computer(playerChoice, gameType) {
         let buttonsContainer = document.getElementById("buttoncontainer");
         clearChildren(buttonsContainer)
         let player = document.createElement("p");
-        player.innerHTML = "Player wins!!\n";
+        player.innerHTML = localStorage.getItem("playerNameItem") + " wins!!\n";
         buttonsContainer.appendChild(player);
         buttonsContainer.appendChild(button)
         button.textContent = "Play again";
@@ -173,9 +201,9 @@ function Computer(playerChoice, gameType) {
         return "Comput wins"
     }
         
-    if(gameType == 4){
+    if(gameType == Infinity){
         let player = document.createElement("Player");
-        player.innerHTML = 'Total score' + parseInt(playerPoints);
+        let buttonsContainer = document.getElementById("buttoncontainer");
         buttonsContainer.appendChild(player);
         return "nonstopstopped"
     }
@@ -195,7 +223,7 @@ function BestOf5(rock, paper, scissors){
 }
 
 function NonStop(rock, paper, scissors){
-    rock.onclick = () => {Computer(1, 4)}
-    paper.onclick = () => {Computer(2, 4)}
-    scissors.onclick =() => {Computer(3, 4)}
+    rock.onclick = () => {Computer(1, Infinity)}
+    paper.onclick = () => {Computer(2, Infinity)}
+    scissors.onclick =() => {Computer(3, Infinity)}
 }
