@@ -12,15 +12,31 @@ function chooseMe() {
 }
 
 function rockX() {
-    let x = document.createElement("img")
-    x.setAttribute("src", "/images/rock.png");
-    x.setAttribute("max-width", "300");
-    x.setAttribute("max-height", "500");
-    x.setAttribute("alt", "ROCK");
-    
+    let rockImg = document.createElement("img")
+    rockImg.setAttribute("src", "/images/rock.png");
+    rockImg.setAttribute("width", "400");
+    rockImg.setAttribute("height", "300");
+    rockImg.setAttribute("alt", "ROCK");
+    return rockImg;
 }
 
+function paperX() {
+    let paperImg = document.createElement("img")
+    paperImg.setAttribute("src", "/images/paper.png");
+    paperImg.setAttribute("width", "400");
+    paperImg.setAttribute("height", "300");
+    paperImg.setAttribute("alt", "PAPER");
+    return paperImg;
+}
 
+function scissorsX() {
+    let scissorsImg = document.createElement("img")
+    scissorsImg.setAttribute("src", "/images/scissors.png");
+    scissorsImg.setAttribute("width", "400");
+    scissorsImg.setAttribute("height", "300");
+    scissorsImg.setAttribute("alt", "SCISSORS");
+    return scissorsImg;
+}
 
 let playerPoints = 0;
 let computerPoints = 0;
@@ -39,21 +55,22 @@ function removeAll(choices) {
     
     let rock = document.createElement("div");
     rock.setAttribute("id", "rock")
-    rock.innerHTML = "ROCK";
+    // rock.innerHTML = "ROCK";
     rock.classList.add("buttons");
     buttonsContainer.appendChild(rock);
+    rock.appendChild(rockX());
     
     let paper = document.createElement("div");
     paper.setAttribute("id", "paper")
-    paper.innerHTML = "PAPER";
     paper.classList.add("buttons");
     buttonsContainer.appendChild(paper);
+    paper.appendChild(paperX())
 
     let scissors = document.createElement("div");
     scissors.setAttribute("id", "scissors")
-    scissors.innerHTML = "SCISSORS";
     scissors.classList.add("buttons");
     buttonsContainer.appendChild(scissors);
+    scissors.appendChild(scissorsX())
     
     let gamemode = document.getElementById("gamemode");
     gamemode.innerHTML = "MAKE A MOVE";
