@@ -30,7 +30,7 @@ function timer(color) {
 
 function rockX() {
     let rockImg = document.createElement("img")
-    rockImg.setAttribute("src", "/images/rock.png");
+    rockImg.setAttribute("src", "./images/rock.png");
     rockImg.setAttribute("width", "400");
     rockImg.setAttribute("height", "300");
     rockImg.setAttribute("alt", "ROCK");
@@ -39,7 +39,7 @@ function rockX() {
 
 function paperX() {
     let paperImg = document.createElement("img")
-    paperImg.setAttribute("src", "/images/paper.png");
+    paperImg.setAttribute("src", "./images/paper.png");
     paperImg.setAttribute("width", "400");
     paperImg.setAttribute("height", "300");
     paperImg.setAttribute("alt", "PAPER");
@@ -48,7 +48,7 @@ function paperX() {
 
 function scissorsX() {
     let scissorsImg = document.createElement("img")
-    scissorsImg.setAttribute("src", "/images/scissors.png");
+    scissorsImg.setAttribute("src", "./images/scissors.png");
     scissorsImg.setAttribute("width", "400");
     scissorsImg.setAttribute("height", "300");
     scissorsImg.setAttribute("alt", "SCISSORS");

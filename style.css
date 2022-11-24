@@ -198,18 +198,20 @@ ul {
         height: 100px;
         background-color: #333333;
         margin: 5%;
-    
     }
+
     #buttoncontainer {
         display: flex;
         justify-content: center;
         align-content: center;
         flex-flow: column wrap;
     }
+
     #buttoncontainer img {
         width:100px;
         height: 100px;
     }
+    
     .buttons:hover {
         background-color: rgba(255,87,34,255);
         transition: ease-in-out 0.3s;
