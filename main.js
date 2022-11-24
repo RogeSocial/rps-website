@@ -1,10 +1,18 @@
 //When you click on "Play" on the home page you will get redirected to choose a game mode.
 function chooseMe() {
+    
     location.href="choose-game.html";
+    // let playerName = document.getElementById("name").value;
+
+    // if (playerName == "") {
+    //     playerName = "Player";
+    // }
+ 
+    // console.log(playerName);
 }
 
 function rockX() {
-    let x = document.createElement("rockImg")
+    let x = document.createElement("img")
     x.setAttribute("src", "/images/rock.png");
     x.setAttribute("max-width", "300");
     x.setAttribute("max-height", "500");
@@ -12,7 +20,7 @@ function rockX() {
     
 }
 
-let playerName = document.getElementById("player");
+
 
 let playerPoints = 0;
 let computerPoints = 0;
@@ -21,25 +29,30 @@ let bestOf3 = 3;
 let bestOf5 = 5;
 let nonStop = Infinity;
 
+let button = document.createElement("button");
+
 function removeAll(choices) {
     
     let buttonsContainer = document.getElementById("buttoncontainer");
     let buttons = document.getElementsByClassName("buttons");
     clearChildren(buttonsContainer)
     
-    let rock = document.createElement("rock");
+    let rock = document.createElement("div");
+    rock.setAttribute("id", "rock")
     rock.innerHTML = "ROCK";
-    rock.classList.add('buttons');
+    rock.classList.add("buttons");
     buttonsContainer.appendChild(rock);
     
-    let paper = document.createElement("paper");
+    let paper = document.createElement("div");
+    paper.setAttribute("id", "paper")
     paper.innerHTML = "PAPER";
-    paper.classList.add('buttons');
+    paper.classList.add("buttons");
     buttonsContainer.appendChild(paper);
 
-    let scissors = document.createElement("scissors");
+    let scissors = document.createElement("div");
+    scissors.setAttribute("id", "scissors")
     scissors.innerHTML = "SCISSORS";
-    scissors.classList.add('buttons');
+    scissors.classList.add("buttons");
     buttonsContainer.appendChild(scissors);
     
     let gamemode = document.getElementById("gamemode");
@@ -76,9 +89,10 @@ function Computer(playerChoice, gameType) {
     console.log(random);
     let playerScore = document.getElementById("playerScore");
     let computerScore = document.getElementById("computerScore");
-    if (random == 1 ){
+    
+    if (random == 1){
         console.log('computer: rock')
-        if(playerChoice ==1) {
+        if(playerChoice == 1) {
             console.log('draw')
         } else if(playerChoice == 2) {
             console.log('player wins')
@@ -114,27 +128,35 @@ function Computer(playerChoice, gameType) {
             console.log('draw');
         }
     }
-
-    playerScore.innerHTML ='Player: '+ parseInt(playerPoints);
+   // chooseMe(playerName)
+    playerScore.innerHTML = 'Player: '+ parseInt(playerPoints);
     computerScore.innerHTML ='Computer: '+ parseInt(computerPoints);
     if(playerPoints >= gameType){
+        let button = document.createElement("button");
+        button.setAttribute("onclick", "chooseMe()");
         let buttonsContainer = document.getElementById("buttoncontainer");
         clearChildren(buttonsContainer)
-        let player = document.createElement("Player");
-        player.innerHTML = "Player wins!!";
+        let player = document.createElement("p");
+        player.innerHTML = "Player wins!!\n";
         buttonsContainer.appendChild(player);
+        buttonsContainer.appendChild(button)
+        button.textContent = "Play again";
         return "Playa wins"}
+    
     if(computerPoints >= gameType){
+        let button = document.createElement("button");
+        button.setAttribute("onclick", "chooseMe()");
         let buttonsContainer = document.getElementById("buttoncontainer");
         clearChildren(buttonsContainer);
-        let computer = document.createElement("Computer");
-        computer.innerHTML = "Computer wins!!";
+        let computer = document.createElement("p");
+        computer.innerHTML = "Computer wins!!\n";
         buttonsContainer.appendChild(computer);
-        let 
+        buttonsContainer.appendChild(button);
+        button.textContent = "Play again";
         return "Comput wins"
     }
         
-    if(gameType == 10){
+    if(gameType == 4){
         let player = document.createElement("Player");
         player.innerHTML = 'Total score' + parseInt(playerPoints);
         buttonsContainer.appendChild(player);
@@ -144,7 +166,6 @@ function Computer(playerChoice, gameType) {
 };
 
 function BestOf3(rock, paper, scissors){
-    
     rock.onclick = () => {Computer(1, 2)}
     paper.onclick = () => {Computer(2, 2)}
     scissors.onclick =() => {Computer(3, 2)}
@@ -157,7 +178,7 @@ function BestOf5(rock, paper, scissors){
 }
 
 function NonStop(rock, paper, scissors){
-    rock.onclick = () => {Computer(1, 10)}
-    paper.onclick = () => {Computer(2, 10)}
-    scissors.onclick =() => {Computer(3, 10)}
+    rock.onclick = () => {Computer(1, 4)}
+    paper.onclick = () => {Computer(2, 4)}
+    scissors.onclick =() => {Computer(3, 4)}
 }

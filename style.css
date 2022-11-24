@@ -134,8 +134,14 @@ ul {
     font-size: larger;
     color: #DDDDDD;
     flex-wrap: wrap;
+    flex-direction: row;
 }
-
+#buttoncontainer button {
+    display: block;
+    align-self: center;
+    
+    
+}
 .buttons {
     width: 300px;
     height: 300px;
