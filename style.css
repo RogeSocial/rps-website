@@ -20,9 +20,9 @@
 .nav li {
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 25px;
-    float:left;
+    float: left;
     list-style: none;
-    margin: 13px 20px; 
+    margin: 13px 20px;
 }
 
 .nav li a:not(.active) {
@@ -32,12 +32,12 @@
     text-align: center;
 }
 
-.nav li a:hover:not(.active){
+.nav li a:hover:not(.active) {
     background-color: grey;
     transition: 1s;
 }
 
-.active{
+.active {
     color: rgb(206, 206, 206);
     text-decoration: underline;
     pointer-events: none;
@@ -52,25 +52,26 @@ input {
     height: 30px;
 }
 
- #home {
+#home {
     display: flex;
     justify-content: center;
     flex-flow: column wrap;
     align-items: center;
-} 
+}
+
 #home button {
     max-width: 100px;
     min-width: 50px;
     min-height: 25px;
-    background-color: rgba(255,87,34,255);
+    background-color: rgba(255, 87, 34, 255);
     color: whitesmoke;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Source Sans Pro', sans-serif;
     font-size: 180%;
     transition: transform .2s;
 }
 
-button:hover{
-    background-color: rgba(255,87,34,255);
+button:hover {
+    background-color: rgba(255, 87, 34, 255);
     color: whitesmoke;
     transform: scale(1.5);
 }
@@ -82,7 +83,9 @@ section {
     text-align: center;
 
 }
-label, input {
+
+label,
+input {
     position: relative;
     display: block;
     padding-right: 76px;
@@ -137,12 +140,25 @@ ul {
     flex-wrap: wrap;
     flex-direction: row;
 }
+
 #buttoncontainer button {
-    display: block;
-    align-self: center;
-    
-    
+    max-width: 200px;
+    min-width: 50px;
+    min-height: 25px;
+    padding: 5px;
+    background-color: rgba(255, 87, 34, 255);
+    color: whitesmoke;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 180%;
+    transition: transform .2s;
 }
+
+#buttoncontainer button:hover {
+    background-color: rgba(255, 87, 34, 255);
+    color: whitesmoke;
+    transform: scale(1.5);
+}
+
 .buttons {
     width: 300px;
     height: 300px;
@@ -152,10 +168,11 @@ ul {
 }
 
 .buttons:hover {
-    background-color: rgba(255,87,34,255);
+    background-color: rgba(255, 87, 34, 255);
 }
 
-.buttons, h1 {
+.buttons,
+h1 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -165,10 +182,26 @@ ul {
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 32px;
 }
-
+#mode button {
+    max-width: 200px;
+    min-width: 50px;
+    min-height: 25px;
+    padding: 5px;
+    background-color: rgba(255, 87, 34, 255);
+    color: whitesmoke;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 140%;
+    transition: transform .2s;
+}
 #mode {
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 24px;
+    display: flex;
+    align-content: center;
+    justify-content: flex-end;
+    flex-direction: column;
+    flex-wrap: wrap;
+    
 }
 
 #playerScore {
@@ -179,6 +212,7 @@ ul {
     float: left;
     margin-left: 180px;
 }
+
 #computerScore {
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 30px;
@@ -208,12 +242,12 @@ ul {
     }
 
     #buttoncontainer img {
-        width:100px;
+        width: 100px;
         height: 100px;
     }
-    
+
     .buttons:hover {
-        background-color: rgba(255,87,34,255);
+        background-color: rgba(255, 87, 34, 255);
         transition: ease-in-out 0.3s;
     }
 
@@ -221,10 +255,12 @@ ul {
         height: 100px;
     }
 
-    #buttoncontainer h1, #playerScore, #computerScore {
+    #buttoncontainer h1,
+    #playerScore,
+    #computerScore {
         font-size: 120%;
         margin-right: 10px;
         margin-left: 10px;
     }
-    
-  }
+
+}
